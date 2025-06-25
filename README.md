@@ -1,63 +1,101 @@
-# Pravda Network Analysis Data
+# Pravda Network Lens
 
-This directory contains the data and visualizations for the Pravda network infrastructure analysis.
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmlcybersecops.github.io%2Fkremlin_propaganda_lens)](https://mlcybersecops.github.io/kremlin_propaganda_lens)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Directory Structure
+An interactive visualization of the Pravda network infrastructure, providing insights into domain relationships, IP addresses, and network topology.
 
-```
-pravda_network_data/
-├── data/                    # Raw and processed data files
-│   └── active_probe_output_1.csv  # Raw probe data
-├── docs/                    # Documentation
-│   └── network_analysis_report.md  # Analysis report
-└── visualization/           # Network visualizations
-    └── pravda_network.html  # Interactive network visualization
-```
+## 🌐 Live Website
 
-## Data Description
+Visit the interactive visualization at:  
+https://mlcybersecops.github.io/kremlin_propaganda_lens
 
-### `data/active_probe_output_1.csv`
-This file contains the raw output from active network probing of the Pravda network infrastructure.
+## 📊 Features
 
-**Format:**
-```
-<source> (type) --> <relationship> --> <target> (type)
-```
+- Interactive network graph visualization
+- Detailed domain and IP relationship mapping
+- Responsive design for desktop and mobile
+- Search and filter functionality
+- Export options for analysis
 
-**Example:**
-```
-pravda.com.ua (FQDN) --> a_record --> 104.22.28.160 (IPAddress)
-```
+## 🚀 Quick Start
 
-## Visualization
+### Viewing the Visualization
 
-The interactive network visualization is available in the `visualization` directory:
-- `pravda_network.html`: Interactive network graph showing relationships between domains, IPs, and services
+1. **Online**: Visit the [live website](https://mlcybersecops.github.io/kremlin_propaganda_lens)
+2. **Locally**: Open `index.html` in any modern web browser
 
-To view the visualization:
-1. Open `visualization/pravda_network.html` in a web browser
-2. Use your mouse to zoom, pan, and interact with the network
-
-## How to Recreate
+### Regenerating the Visualization
 
 1. Install dependencies:
    ```bash
-   pip install networkx pyvis pandas
+   pip install -r requirements.txt
    ```
 
 2. Run the visualization script:
    ```bash
-   python visualization/network_visualizer.py data/active_probe_output_1.csv -o visualization/network.html
+   python visualization/network_visualizer.py data/active_probe_output_1.csv -o visualization/pravda_network.html
    ```
 
-## Analysis Report
+## 📂 Project Structure
 
-See `docs/network_analysis_report.md` for a detailed analysis of the network infrastructure.
+```
+.
+├── data/                           # Data files
+│   └── active_probe_output_1.csv   # Raw probe data
+├── docs/                           # Documentation
+│   └── network_analysis_report.md  # Analysis report
+├── visualization/                  # Visualization files
+│   ├── network_visualizer.py       # Script to generate visualization
+│   └── pravda_network.html         # Interactive network graph
+├── index.html                      # Website homepage
+├── 404.html                       # Custom 404 page
+├── _config.yml                    # GitHub Pages config
+├── .nojekyll                      # Disable Jekyll processing
+└── README.md                      # This file
+```
 
-## License
+## 🔍 Data Description
 
-[Specify your license here]
+The dataset includes:
 
-## Contact
+- Domain relationships
+- IP address mappings
+- Network blocks and services
+- Connection types and protocols
 
-For questions about this data, please contact [Your Contact Information]
+### Example Data Format
+
+```
+<source> (type) --> <relationship> --> <target> (type)
+```
+
+Example:
+```
+pravda.com.ua (FQDN) --> a_record --> 104.22.28.160 (IPAddress)
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📧 Contact
+
+Project Link: [https://github.com/MLCyberSecOps/kremlin_propaganda_lens](https://github.com/MLCyberSecOps/kremlin_propaganda_lens)
+
+## 🙏 Acknowledgments
+
+- NetworkX for graph analysis
+- PyVis for network visualization
+- Bootstrap for responsive design
+- GitHub Pages for hosting

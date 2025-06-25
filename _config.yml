@@ -1,0 +1,66 @@
+title: Pravda Network Analysis
+description: Interactive visualization of Pravda network infrastructure
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://mlcybersecops.github.io" # the base hostname & protocol for your site
+
+theme: jekyll-theme-cayman
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+twitter_username: MLCyberSecOps
+github_username:  MLCyberSecOps
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor
+
+# Add your plugins here:
+# plugins:
+#   - jekyll-feed
+
+# Enable or disable the site search
+search: true
+
+# Enable or disable the breadcrumbs navigation
+breadcrumbs: true
+
+# Enable or disable the table of contents
+toc: true
+
+# Enable or disable the related posts
+related_posts: true
+
+# Enable or disable the reading time
+reading_time: true
+
+# Enable or disable the social share buttons
+share: true
+
+# Enable or disable the comments
+comments: true
+
+# Enable or disable the tags
+show_tags: true
+
+# Enable or disable the categories
+show_categories: true
+
+# Enable or disable the author box
+authorbox: true
+
+# Enable or disable the related posts
+related: true
+
+# Enable or disable the post navigation
+post_navigation: true
+
+# Enable or disable the pagination
+pagination: true
