@@ -150,13 +150,8 @@
                         <i class="bi bi-diagram-3 me-2"></i>Network Visualization
                     </h2>
                     <div class="visualization-container">
-                        <div id="network">
-                            <div class="loading">
-                                <div class="spinner-border text-primary me-2" role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
-                                Loading network visualization...
-                            </div>
+                        <div id="network" class="mt-3">
+                            <iframe src="visualization/pravda_network.html" style="width: 100%; height: 70vh; border: 1px solid #e1e4e8; border-radius: 6px;"></iframe>
                         </div>
                         <div class="legend">
                             <div class="legend-item">
@@ -260,7 +255,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p class="mb-0">© 2025 Pravda Network Analysis. For research and educational purposes only.</p>
+            <p class="mb-0"> 2025 Pravda Network Analysis. For research and educational purposes only.</p>
             <p class="small mt-2">
                 <a href="#" class="text-white me-3">Privacy Policy</a>
                 <a href="#" class="text-white me-3">Terms of Use</a>
@@ -273,99 +268,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script>
-        // Load the network data
+        // Simple script to handle any additional interactivity if needed
         document.addEventListener('DOMContentLoaded', function() {
-            // Create a simple loading animation
-            const loadingElement = document.querySelector('#network .loading');
-            
-            // Load the network data from the visualization file
-            fetch('visualization/pravda_network.html')
-                .then(response => response.text())
-                .then(html => {
-                    // Extract nodes and edges from the HTML
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const scriptContent = Array.from(doc.scripts)
-                        .find(script => script.textContent.includes('nodes = new vis.DataSet'));
-                    
-                    if (scriptContent) {
-                        // Create a function to extract the data
-                        const extractData = (content, varName) => {
-                            const regex = new RegExp(`var ${varName} = (\[.*?\]);`, 's');
-                            const match = content.match(regex);
-                            return match ? JSON.parse(match[1]) : [];
-                        };
-                        
-                        const scriptText = scriptContent.textContent;
-                        const nodes = extractData(scriptText, 'nodes');
-                        const edges = extractData(scriptText, 'edges');
-                        
-                        // Create the network
-                        const container = document.getElementById('network');
-                        container.innerHTML = ''; // Clear loading message
-                        
-                        const data = {
-                            nodes: new vis.DataSet(nodes),
-                            edges: new vis.DataSet(edges)
-                        };
-                        
-                        const options = {
-                            nodes: {
-                                shape: 'dot',
-                                size: 16,
-                                font: {
-                                    size: 12,
-                                    color: '#000000'
-                                },
-                                borderWidth: 1,
-                                shadow: true
-                            },
-                            edges: {
-                                width: 1,
-                                shadow: true,
-                                smooth: {
-                                    type: 'continuous'
-                                },
-                                arrows: {
-                                    to: { enabled: true, scaleFactor: 0.5 }
-                                },
-                                color: {
-                                    color: '#97C2FC',
-                                    highlight: '#FFA500',
-                                    hover: '#FFA500',
-                                    inherit: false
-                                }
-                            },
-                            physics: {
-                                stabilization: {
-                                    enabled: true,
-                                    iterations: 1000
-                                },
-                                barnesHut: {
-                                    gravitationalConstant: -2000,
-                                    springLength: 150,
-                                    springConstant: 0.04,
-                                    damping: 0.09
-                                }
-                            },
-                            interaction: {
-                                tooltipDelay: 200,
-                                hideEdgesOnDrag: true,
-                                multiselect: true,
-                                navigationButtons: true,
-                                keyboard: true
-                            }
-                        };
-                        
-                        new vis.Network(container, data, options);
-                    } else {
-                        loadingElement.innerHTML = 'Error: Could not load network data';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading network data:', error);
-                    loadingElement.innerHTML = 'Error loading network visualization. Please try again later.';
-                });
+            console.log('Pravda Network Visualization loaded successfully');
         });
     </script>
 </body>
